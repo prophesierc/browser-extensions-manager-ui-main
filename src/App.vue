@@ -1,9 +1,8 @@
 <template>
 
-  <router-view v-slot="{ HomeView }">
-    <!-- redundant, but caches the HomeView -->
+  <router-view v-slot="{ Component }">
     <keep-alive>
-      <component :is="HomeView" />
+      <component :is="Component" />
     </keep-alive>
   </router-view>
 
