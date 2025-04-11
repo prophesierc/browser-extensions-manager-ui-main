@@ -6,11 +6,12 @@
       <!-- inner container -->
       <ExtensionsBar/>
 
-      <h1 class="pt-4 font-family-NS font-dark text-3xl">
+      <h1 class="pt-4  font-dark text-3xl">
         Extensions List
       </h1>
 
       <FilterButtons/>
+      <CardContainer/>
     </div>
 
   </div>
@@ -19,4 +20,5 @@
 <script setup lang="ts">
   import ExtensionsBar from '@/Components/ExtensionsBar.vue'
   import FilterButtons from '@/Components/FilterButtons.vue'
+  import CardContainer from '@/Components/CardContainer.vue'
 </script>
