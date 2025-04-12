@@ -39,5 +39,5 @@ p, h1, button{
   @apply font-family-NS;
 }
 button{
-  @apply rounded-3xl shadow-default bg-white text-paragraph;
+  @apply rounded-3xl shadow-default text-paragraph;
 }

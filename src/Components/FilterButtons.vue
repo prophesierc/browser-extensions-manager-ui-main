@@ -1,11 +1,41 @@
 <template>
-  <span class="h-[25%] w-[50%] min-w-[80%] max-w-[85%]
-                flex flex-row justify-between items-center place-self-center
-                *:h-10">
-    <button class="w-15">All</button>
-    <button class="w-20">Active</button>
-    <button class="w-22">Inactive</button>
-  </span>
+  <button
+    @click="activateButton"
+    :class="isActive ? 'bg-red-500 text-white' : 'bg-white'"
+  >
+    {{ buttonText }}
+  </button>
 </template>
 
-<!-- create generic button prop to add to top 3 and remove button in CardContainer -->
+<script lang="ts">
+import { defineComponent, ref } from 'vue';
+
+export default defineComponent({
+  name: 'FilterButtons',
+  props: {
+    buttonText: {
+      type: String,
+      required: true
+    },
+  },
+  setup(props)
+  {
+    const isActive = ref(false);
+    // defaults to !isActive
+
+    const activateButton = (): void =>
+    {
+      if (props.buttonText !== 'Remove')
+      {
+        isActive.value = !isActive.value;
+        // toggles
+      }
+    };
+
+    return {
+      isActive,
+      activateButton
+    };
+  },
+});
+</script>
