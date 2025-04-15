@@ -30,7 +30,8 @@
 <script lang="ts">
   import FilterButtons from '@/Components/FilterButtons.vue'
   import { defineComponent } from 'vue';
-
+  import { fetchExtensions } from '@/Composables/Fetch'
+  import type { Extension } from '@/Composables/Fetch'
   export default defineComponent(
   {
     name: 'CardContainer',
@@ -42,7 +43,17 @@
     {
       return{
         removeButton: 'Remove',
+        extension: null as Extension | null
       }
-    }
+    },
+    mounted() {
+    fetchExtensions()
+      .then((data) => {
+        console.log(data.length)
+      })
+      .catch((err) => {
+        console.error(err)
+      })
+  }
   });
 </script>
