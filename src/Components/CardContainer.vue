@@ -2,14 +2,14 @@
   <div
     v-for="(data, index) in extension"
     :key="index"
-    class="rounded-2xl shadow-default bg-white px-4">
+    class="h-55 rounded-2xl shadow-default bg-white px-4 mb-4 last:mb-20">
 
-    <span class="flex flex-row">
-      <img :src="data?.logo" alt="logo">
+    <span class="flex flex-row h-[70%] w-full py-4 mt-6 ">
+      <img :src="data?.logo" :alt="`${data?.name} logo`" class="h-15 w-15">
       <div class="text-start pl-5">
-        <p class="text-xl font-dark">
+        <p class="text-xl font-dark mb-2">
           {{ data?.name }}</p>
-        <p class="text-paragraph font-light text-neutral-600">
+        <p class="text-paragraph font-light text-neutral-600 max-w-60 min-w-50">
           {{ data?.description }}</p>
       </div>
     </span>
@@ -26,6 +26,7 @@
             transition-transformduration-300 peer-checked:translate-x-6 peer-checked:border-red-dark cursor-pointer">
         </label>
       </span>
+
     </span>
   </div>
 </template>
