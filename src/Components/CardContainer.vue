@@ -25,7 +25,7 @@
           v-model="data.isActive"
           class="peer appearance-none w-11 h-5 bg-Neutral-100 rounded-full checked:bg-red-dark duration-300" />
 
-        <label for="`toggle-${index}`"
+        <label :for="`toggle-${index}`"
           class="absolute left-0 w-5 h-5 bg-white rounded-full border border-Neutral-300
             transition-transformduration-300 peer-checked:translate-x-6 peer-checked:border-red-dark cursor-pointer">
         </label>
