@@ -8,7 +8,7 @@ export interface Extension
 
 export async function fetchExtensions(): Promise<Extension[]>
 {
-  const response = await fetch('/data.json');
+  const response = await fetch('./data.json');
   if (!response.ok)
   {
     throw new Error('Network response was not ok');

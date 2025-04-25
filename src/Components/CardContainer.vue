@@ -1,12 +1,12 @@
 <template>
   <div class="h-50 rounded-2xl shadow-default bg-white px-4">
 
-    <span class="flex flex-row h-[70%] w-full py-4 mt-6">
+    <span v-for="(data, index) in extension" :key="index" class="flex flex-row h-[70%] w-full py-4 mt-6">
       <img src="@/assets/images/logo-devlens.svg" class="h-15 w-15">
       <div class="text-start pl-5">
         <p class="text-xl font-dark">DevLens</p>
         <p class="text-paragraph font-light text-neutral-600"
-        >Quickly inspect page layouts and visualize element boundaries.</p>
+        >{{ data?.description }}</p>
       </div>
     </span>
 
@@ -43,17 +43,20 @@
     {
       return{
         removeButton: 'Remove',
-        extension: null as Extension | null
+        extension: [] as Extension[]
       }
     },
-    mounted() {
-    fetchExtensions()
-      .then((data) => {
-        console.log(data.length)
-      })
-      .catch((err) => {
-        console.error(err)
-      })
-  }
+    mounted()
+    {
+      fetchExtensions()
+        .then((data) =>
+        {
+          this.extension = data
+        })
+        .catch((err) =>
+        {
+          console.error(err)
+        })
+    }
   });
 </script>
