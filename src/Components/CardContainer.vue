@@ -15,7 +15,11 @@
     </span>
 
     <span class="flex flex-row w-full justify-between text-center place-items-center h-auto">
-      <FilterButtons :button-text="removeButton" :class="'h-8 w-25 bg-white'"/>
+
+      <RemoveCard
+        :button-text="removeButton"
+        :class="'h-8 w-25 bg-white-500'"
+      />
 
       <span class="relative w-11 h-6">
 
@@ -37,7 +41,7 @@
 </template>
 
 <script lang="ts">
-  import FilterButtons from '@/Components/FilterButtons.vue'
+  import RemoveCard from '@/Components/RemoveCard.vue'
   import { defineComponent } from 'vue';
   import { fetchExtensions } from '@/Composables/Fetch'
   import type { Extension } from '@/Composables/Fetch'
@@ -46,7 +50,7 @@
     name: 'CardContainer',
     components:
     {
-      FilterButtons
+      RemoveCard
     },
     data()
     {

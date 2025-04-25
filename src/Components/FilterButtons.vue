@@ -2,40 +2,34 @@
   <button
     @click="activateButton"
     :class="isActive ? 'bg-red-500 text-white' : 'bg-white'"
-  >
-    {{ buttonText }}
-  </button>
+  >{{ buttonText }}</button>
 </template>
 
 <script lang="ts">
-import { defineComponent, ref } from 'vue';
-
-export default defineComponent({
-  name: 'FilterButtons',
-  props: {
-    buttonText: {
-      type: String,
-      required: true
-    },
-  },
-  setup(props)
+  import { defineComponent } from 'vue';
+  export default defineComponent(
   {
-    const isActive = ref(false);
-    // defaults to !isActive
-
-    const activateButton = (): void =>
+    name: 'FilterButtons',
+    props:
     {
-      if (props.buttonText !== 'Remove')
+      buttonText:
       {
-        isActive.value = !isActive.value;
-        // toggles
+        type: String,
+        required: true
+      },
+      isActive:
+      {
+        type: Boolean,
+        required: true
       }
-    };
-
-    return {
-      isActive,
-      activateButton
-    };
-  },
-});
+    },
+    emits: ['activate'],
+    methods:
+    {
+      activateButton(): void
+      {
+        this.$emit('activate');
+      }
+    }
+  });
 </script>
