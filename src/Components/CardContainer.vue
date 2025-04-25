@@ -1,12 +1,16 @@
 <template>
-  <div class="h-50 rounded-2xl shadow-default bg-white px-4">
+  <div
+    v-for="(data, index) in extension"
+    :key="index"
+    class="rounded-2xl shadow-default bg-white px-4">
 
-    <span v-for="(data, index) in extension" :key="index" class="flex flex-row h-[70%] w-full py-4 mt-6">
-      <img src="@/assets/images/logo-devlens.svg" class="h-15 w-15">
+    <span class="flex flex-row">
+      <img :src="data?.logo" alt="logo">
       <div class="text-start pl-5">
-        <p class="text-xl font-dark">DevLens</p>
-        <p class="text-paragraph font-light text-neutral-600"
-        >{{ data?.description }}</p>
+        <p class="text-xl font-dark">
+          {{ data?.name }}</p>
+        <p class="text-paragraph font-light text-neutral-600">
+          {{ data?.description }}</p>
       </div>
     </span>
 
@@ -14,6 +18,7 @@
       <FilterButtons :button-text="removeButton" :class="'h-8 w-25 bg-white'"/>
 
       <span class="relative w-11 h-6">
+
         <input checked id="toggle" type="checkbox"
           class="peer appearance-none w-11 h-5 bg-Neutral-100 rounded-full checked:bg-red-dark duration-300" />
         <label for="toggle"
@@ -21,9 +26,7 @@
             transition-transformduration-300 peer-checked:translate-x-6 peer-checked:border-red-dark cursor-pointer">
         </label>
       </span>
-
     </span>
-
   </div>
 </template>
 
