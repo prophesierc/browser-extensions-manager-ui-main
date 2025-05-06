@@ -18,6 +18,7 @@
 
       <RemoveCard
         :button-text="removeButton"
+        @removeCardButton="remove"
         :class="'h-8 w-25 bg-white-500'"
       />
 
@@ -56,7 +57,15 @@
     {
       return{
         removeButton: 'Remove',
-        extension: [] as Extension[]
+        extension: [] as Extension[],
+        container: []
+      }
+    },
+    methods:
+    {
+      remove()
+      {
+        console.log('test')
       }
     },
     mounted()

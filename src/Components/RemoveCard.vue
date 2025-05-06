@@ -1,5 +1,6 @@
 <template>
   <button
+    @click="removeCardButton"
   >{{ buttonText }}</button>
 </template>
 
@@ -14,6 +15,14 @@
       {
         type: String,
         required: true
+      }
+    },
+    emits: ['removeCard'],
+    methods:
+    {
+      removeCardButton(): void
+      {
+        this.$emit('removeCard');
       }
     }
   });
